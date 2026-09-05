@@ -1,0 +1,8 @@
+{
+  "name": " Pocket Fund",
+  "description": "A parent-guided allowance platform that helps teenagers build responsible money habits.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
