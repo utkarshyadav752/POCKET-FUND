@@ -10,6 +10,7 @@ interface StudentWebpageProps {
   onSaveTeenGoal: () => void;
   onCompleteChallenge: () => void;
   onSignOut: () => void;
+  onOpenPptxDeck?: () => void;
   isDarkTheme: boolean;
   onToggleTheme: () => void;
   showToast: (msg: string) => void;
@@ -23,6 +24,7 @@ export const StudentWebpage: React.FC<StudentWebpageProps> = ({
   onSaveTeenGoal,
   onCompleteChallenge,
   onSignOut,
+  onOpenPptxDeck,
   isDarkTheme,
   onToggleTheme,
   showToast,
@@ -156,6 +158,26 @@ export const StudentWebpage: React.FC<StudentWebpageProps> = ({
               <div style={{ fontSize: '0.64rem', color: '#799ab2' }}>{child.email}</div>
             </div>
           </div>
+
+          {onOpenPptxDeck && (
+            <button
+              type="button"
+              className="btn small secondary"
+              onClick={onOpenPptxDeck}
+              title="Open PPTX Slide Backgrounds & 16:9 Presentation PDF Studio"
+              style={{
+                padding: '6px 12px',
+                fontSize: '0.74rem',
+                borderColor: '#38bdf8',
+                color: '#38bdf8',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              <span>📊</span> PPTX &amp; PDF Deck
+            </button>
+          )}
 
           <button
             type="button"

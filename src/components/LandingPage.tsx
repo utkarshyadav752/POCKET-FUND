@@ -4,6 +4,7 @@ interface LandingPageProps {
   onOpenLogin: (role?: 'parent' | 'student') => void;
   onOpenPilot: () => void;
   onOpenSiteAi: () => void;
+  onOpenPptxDeck: () => void;
   showToast: (msg: string) => void;
   isDarkTheme: boolean;
   onToggleTheme: () => void;
@@ -67,6 +68,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   onOpenPilot,
   onOpenLogin,
   onOpenSiteAi,
+  onOpenPptxDeck,
   showToast,
   isDarkTheme,
   onToggleTheme,
@@ -150,6 +152,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.74rem', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              onClick={onOpenPptxDeck}
+              style={{
+                background: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
+                color: '#ffffff',
+                border: '1px solid #38bdf8',
+                padding: '4px 12px',
+                borderRadius: '4px',
+                fontWeight: 700,
+                fontSize: '0.74rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+              title="Download 16:9 PDF & PNG slide backgrounds for PowerPoint (PPTX)"
+            >
+              <span>📑</span> PPTX Deck &amp; Backgrounds (16:9 PDF)
+            </button>
             <span style={{ color: '#799ab2' }}>Founder Desk (Utkarsh Yadav)</span>
             <a
               href="tel:9554460651"
@@ -218,6 +240,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               <a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }}>FAQ</a>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                <button
+                  className="btn secondary small"
+                  style={{ borderColor: '#38bdf8', color: '#38bdf8' }}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenPptxDeck();
+                  }}
+                  title="Open 16:9 Presentation Slides & PPTX Background Studio"
+                >
+                  📊 PPTX &amp; PDF Deck
+                </button>
                 <button
                   className="btn secondary small"
                   style={{ borderColor: '#2dd4bf', color: '#2dd4bf' }}
@@ -291,6 +324,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   title="Sign in to Student Space"
                 >
                   Student Sign In 🧑
+                </button>
+                <button
+                  className="btn outline"
+                  onClick={onOpenPptxDeck}
+                  title="Download 16:9 Slide Backgrounds & Presentation PDF for PowerPoint"
+                  style={{ borderColor: '#38bdf8', color: '#38bdf8' }}
+                >
+                  📊 PPTX &amp; PDF Deck
                 </button>
               </div>
               <div className="trust-row">
@@ -2230,6 +2271,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 <a href="#multi-child" onClick={(e) => { e.preventDefault(); scrollToSection('multi-child'); }}>Multi-Child Console</a>
                 <a href="#calculator" onClick={(e) => { e.preventDefault(); scrollToSection('calculator'); }}>Allowance Calculator</a>
                 <a href="#demo" onClick={(e) => { e.preventDefault(); scrollToSection('demo'); }}>Interactive Live Sandbox</a>
+                <button
+                  onClick={onOpenPptxDeck}
+                  style={{ background: 'none', border: 'none', color: '#38bdf8', padding: 0, textAlign: 'left', font: 'inherit', cursor: 'pointer', fontWeight: 600 }}
+                >
+                  📑 PPTX Slide Backgrounds &amp; PDF Deck
+                </button>
               </div>
             </div>
 

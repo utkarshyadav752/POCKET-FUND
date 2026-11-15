@@ -4,6 +4,7 @@ import { LandingPage } from './components/LandingPage';
 import { ParentWebpage } from './components/ParentWebpage';
 import { StudentWebpage } from './components/StudentWebpage';
 import { Modals } from './components/Modals';
+import { PptxDeckModal } from './components/PptxDeckModal';
 
 const INITIAL_PARENT: ParentAccount = {
   id: 'parent-1',
@@ -162,6 +163,7 @@ export default function App() {
   const [payingRequest, setPayingRequest] = useState<RequestItem | null>(null);
   const [showTeenQrModal, setShowTeenQrModal] = useState(false);
   const [showSiteAiModal, setShowSiteAiModal] = useState(false);
+  const [showPptxModal, setShowPptxModal] = useState(false);
 
   const handleOpenLogin = (role: 'parent' | 'student' = 'parent', emailPrefill?: string) => {
     setLoginInitialRole(role);
@@ -202,6 +204,8 @@ export default function App() {
       if (demoEl) {
         demoEl.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (hash === '#pptx' || hash === '#pdf' || hash === '#deck' || hash === '#presentation') {
+      setShowPptxModal(true);
     }
   }, []);
 
@@ -647,6 +651,7 @@ export default function App() {
             onDeclineRequest={handleDeclineRequest}
             onSignOut={handleSignOut}
             onResetDemo={handleResetDemo}
+            onOpenPptxDeck={() => setShowPptxModal(true)}
             showToast={showToast}
             isDarkTheme={isDarkTheme}
             onToggleTheme={() => setIsDarkTheme(!isDarkTheme)}
@@ -660,6 +665,7 @@ export default function App() {
             onSaveTeenGoal={handleSaveTeenGoal}
             onCompleteChallenge={handleCompleteChallenge}
             onSignOut={handleSignOut}
+            onOpenPptxDeck={() => setShowPptxModal(true)}
             isDarkTheme={isDarkTheme}
             onToggleTheme={() => setIsDarkTheme(!isDarkTheme)}
             showToast={showToast}
@@ -670,11 +676,19 @@ export default function App() {
           onOpenPilot={() => setShowPilotModal(true)}
           onOpenLogin={handleOpenLogin}
           onOpenSiteAi={() => setShowSiteAiModal(true)}
+          onOpenPptxDeck={() => setShowPptxModal(true)}
           showToast={showToast}
           isDarkTheme={isDarkTheme}
           onToggleTheme={() => setIsDarkTheme(!isDarkTheme)}
         />
       )}
+
+      {/* Presentation Deck & PPTX Background Modal */}
+      <PptxDeckModal
+        isOpen={showPptxModal}
+        onClose={() => setShowPptxModal(false)}
+        showToast={showToast}
+      />
 
       {/* Modals Container */}
       <Modals

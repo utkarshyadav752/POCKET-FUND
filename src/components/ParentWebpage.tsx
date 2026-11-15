@@ -12,6 +12,7 @@ interface ParentWebpageProps {
   onDeclineRequest: (id: string) => void;
   onSignOut: () => void;
   onResetDemo: () => void;
+  onOpenPptxDeck?: () => void;
   showToast: (msg: string) => void;
   isDarkTheme: boolean;
   onToggleTheme: () => void;
@@ -27,6 +28,7 @@ export const ParentWebpage: React.FC<ParentWebpageProps> = ({
   onDeclineRequest,
   onSignOut,
   onResetDemo,
+  onOpenPptxDeck,
   showToast,
   isDarkTheme,
   onToggleTheme,
@@ -212,6 +214,26 @@ export const ParentWebpage: React.FC<ParentWebpageProps> = ({
               <div style={{ fontSize: '0.64rem', color: '#799ab2' }}>Guardian Account</div>
             </div>
           </div>
+
+          {onOpenPptxDeck && (
+            <button
+              type="button"
+              className="btn small secondary"
+              onClick={onOpenPptxDeck}
+              title="Open PPTX Slide Backgrounds & 16:9 Presentation PDF Studio"
+              style={{
+                padding: '6px 12px',
+                fontSize: '0.74rem',
+                borderColor: '#38bdf8',
+                color: '#38bdf8',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '5px',
+              }}
+            >
+              <span>📊</span> PPTX &amp; PDF Deck
+            </button>
+          )}
 
           <button
             type="button"

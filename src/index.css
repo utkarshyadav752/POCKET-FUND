@@ -2718,3 +2718,42 @@ h3 {
   gap: 12px;
 }
 
+/* =========================================================================
+   PPTX Deck & Presentation 16:9 Print & Export Stylesheet
+   ========================================================================= */
+@media print {
+  /* Hide standard page elements */
+  body {
+    background: #05111d !important;
+    color: #e2e8f0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .site-header,
+  .support-announcement-bar,
+  .ai-floating-btn,
+  .toast,
+  .website-root,
+  .portal-webpage-root,
+  .modal-overlay:not(.pptx-deck-modal-root),
+  .pptx-modal-box > *:not(#offscreen-print-container) {
+    display: none !important;
+  }
+
+  @page {
+    size: 297mm 167.06mm; /* 16:9 widescreen landscape */
+    margin: 0;
+  }
+
+  .pptx-print-slide {
+    width: 297mm !important;
+    height: 167.06mm !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+}
+
+
